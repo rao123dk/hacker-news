@@ -2,9 +2,15 @@
   "name": "react_seo",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "npm": "6.9.0",
+    "node": "10.16.3"
+  },
   "dependencies": {
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
+    "react-helmet": "^5.2.1",
+    "react-router-dom": "^5.1.2",
     "react-scripts": "3.2.0"
   },
   "scripts": {
