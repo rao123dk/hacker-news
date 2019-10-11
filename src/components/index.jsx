@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Switch, Route, Link} from 'react-router-dom';
+import {Switch, Route, Link, withRouter} from 'react-router-dom';
 import {Helmet} from "react-helmet";
 import axios from 'axios';
 
@@ -7,6 +7,7 @@ import signup from './signup';
 import Login from './login';
 import Post from './post';
 import Question from './Question';
+import PostInfo from './PostInfo';
 import util  from '../util/index'
 
 
@@ -77,12 +78,13 @@ class Main extends Component {
         {this.state.loggedIn ? (<Link to="/posts/ask">I have question?</Link>) : null}
         <Switch>
           <Route path='/signup' component={signup} />
-          <Route path='/login' render={()=> <Login updateUser={this.updateUser}/>}  />
-          <Route path='/post' render={()=> <Post updateUser={this.updateUser}/>}   />
+          <Route path='/login' render={()=> <Login updateUser={this.updateUser}/>} />
+          <Route exact={true} path='/post' render={()=> <Post  {...this.props} updateUser={this.updateUser}/>} />
+          <Route path='/post/:postid' render={()=> <PostInfo {...this.props}/>} />
           <Route path='/posts/ask' render={()=> <Question />}   />
         </Switch>
       </div>
     );
   }
 }
-export default Main;
+export default withRouter(Main);

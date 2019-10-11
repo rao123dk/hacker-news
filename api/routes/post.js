@@ -5,11 +5,23 @@ const User = require('../database/models/user')
 
 router.get('/', (req, res,) => {
     console.log('===== Get post!!!======')
-    Post.find({},{_id : 0},function(err,data){
+    Post.find({},function(err,data){
         console.log('data: ', data);
         res.send(data)
     })
 })
+
+router.get('/:postId', (req, res,) => {
+    console.log('===== Get post info!!!======')
+    console.log(req.body)
+
+    console.log("hellllllll test",req.params, req.params.postId)
+    Post.find({ _id : req.params.postId},function(err,data){
+        console.log('data: ', data);
+        res.send(data)
+    })
+})
+
 
 router.post('/ask', async(req, res,) => {
     console.log('===== ask!!======')
