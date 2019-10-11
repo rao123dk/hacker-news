@@ -7,7 +7,8 @@ import './App.css';
 
 function App() {
   return (
-    <div>
+    <div className="container">
+      <h3> {"Welcome to POC project"} </h3>
         <BrowserRouter>
           <Main />
         </BrowserRouter>
