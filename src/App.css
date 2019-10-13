@@ -6,7 +6,10 @@ a {
   width: 5%;
   float: left;
 }
-
+.authorName{
+  color: brown;
+  font-size: small;
+}
 /* .App-logo {
   height: 40vmin;
 }
